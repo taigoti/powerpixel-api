@@ -14,7 +14,7 @@ public class HelloWorldController {
     }
 
     @PostMapping
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.CREATED)
     public String helloWorldPOST() {
         return "posting the Hello World!";
     }
