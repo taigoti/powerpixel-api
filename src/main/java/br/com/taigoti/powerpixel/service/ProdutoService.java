@@ -8,29 +8,29 @@ import java.util.List;
 
 @Service
 public class ProdutoService {
-    private final List<ProdutoEntity> PRODUTO = List.of(
+    private static final List<ProdutoEntity> PRODUTO = List.of(
             ProdutoEntity.builder()
                     .id(1)
                     .nome("Notebook")
-                    .preco(45.3)
+                    .preco(4500.0)
                     .quantidade(15)
             .build(),
 
             ProdutoEntity.builder()
                     .id(2)
-                    .nome("Notebook")
-                    .preco(45.3)
+                    .nome("Iphone")
+                    .preco(3090.9)
                     .quantidade(15)
             .build(),
             ProdutoEntity.builder()
-                    .id(2)
-                    .nome("Notebook")
-                    .preco(45.3)
+                    .id(3)
+                    .nome("Monitor")
+                    .preco(750.8)
                     .quantidade(15)
             .build()
     );
 
     public List<ProdutoEntity> findAll() {
-        return PRODUTO;
+        return new ArrayList<>(PRODUTO);
     }
 }
