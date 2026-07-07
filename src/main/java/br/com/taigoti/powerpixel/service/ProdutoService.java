@@ -2,6 +2,7 @@ package br.com.taigoti.powerpixel.service;
 
 import br.com.taigoti.powerpixel.database.model.ProdutoEntity;
 import br.com.taigoti.powerpixel.dto.ProdutoDto;
+import br.com.taigoti.powerpixel.exception.NotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -55,11 +56,11 @@ public class ProdutoService {
         return novoProduto;
     }
 
-    public ProdutoEntity atualizarProduto(ProdutoDto produtoDto, Integer id) {
+    public ProdutoEntity atualizarProduto(ProdutoDto produtoDto, Integer id) throws NotFoundException {
         ProdutoEntity produtoAtual = PRODUTOS.stream()
                 .filter(produto -> produto.getId().equals(id))
                 .findAny()
-                .orElseThrow(() -> new RuntimeException("Produto não encontrado!"));
+                .orElseThrow(() -> new NotFoundException("Produto não encontrado!"));
 
         produtoAtual.setNome(produtoDto.getNome());
         produtoAtual.setPreco(produtoDto.getPreco());

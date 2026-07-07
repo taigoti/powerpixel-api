@@ -2,6 +2,7 @@ package br.com.taigoti.powerpixel.controller;
 
 import br.com.taigoti.powerpixel.database.model.ProdutoEntity;
 import br.com.taigoti.powerpixel.dto.ProdutoDto;
+import br.com.taigoti.powerpixel.exception.NotFoundException;
 import br.com.taigoti.powerpixel.service.ProdutoService;
 
 import lombok.RequiredArgsConstructor;
@@ -32,7 +33,7 @@ public class ProdutoController {
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public ProdutoEntity updateProduto(@PathVariable Integer id,
-                                       @RequestBody ProdutoDto produtoDto) {
+                                       @RequestBody ProdutoDto produtoDto) throws NotFoundException {
         return produtoService.atualizarProduto(produtoDto, id);
     }
 
