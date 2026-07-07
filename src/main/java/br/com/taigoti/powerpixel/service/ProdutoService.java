@@ -39,7 +39,6 @@ public class ProdutoService {
     }
 
     public ProdutoEntity createProduto(ProdutoDto produtoDto) {
-
         Integer identificador = PRODUTOS.stream()
                 .mapToInt(ProdutoEntity::getId)
                 .max()
@@ -54,5 +53,18 @@ public class ProdutoService {
 
         PRODUTOS.add(novoProduto);
         return novoProduto;
+    }
+
+    public ProdutoEntity atualizarProduto(ProdutoDto produtoDto, Integer id) {
+        ProdutoEntity produtoAtual = PRODUTOS.stream()
+                .filter(produto -> produto.getId().equals(id))
+                .findAny()
+                .orElseThrow(() -> new RuntimeException("Produto não encontrado!"));
+
+        produtoAtual.setNome(produtoDto.getNome());
+        produtoAtual.setPreco(produtoDto.getPreco());
+        produtoAtual.setQuantidade(produtoDto.getQuantidade());
+
+        return produtoAtual;
     }
 }
