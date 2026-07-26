@@ -1,6 +1,5 @@
 package br.com.taigoti.powerpixel.database.model;
 
-import jdk.jshell.Snippet;
 import lombok.*;
 
 @Getter
