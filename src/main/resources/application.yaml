@@ -1,3 +1,16 @@
+server:
+  8083
+
 spring:
   application:
     name: powerpixel
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/powerpixel?createDatabaseIfNotExist=true
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
