@@ -1,15 +1,16 @@
 package br.com.taigoti.powerpixel.database.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-import java.util.Date;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "usuarios")
+@EntityListeners(AuditingEntityListener.class)
 @Getter
 @Setter
 @NoArgsConstructor
@@ -26,6 +27,7 @@ public class UsuarioEntity {
     @Column(nullable = false,  unique = true)
     private String email;
 
-    @Column(name = "data_criacao",  nullable = false)
-    private Date dataCriacao;
+    @CreatedDate
+    @Column(name = "data_criacao",  nullable = false, updatable = false)
+    private LocalDateTime dataCriacao;
 }
