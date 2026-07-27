@@ -1,17 +1,30 @@
 package br.com.taigoti.powerpixel.database.model;
 
+import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigDecimal;
+
+@Entity
+@Table (name = "produtos")
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-@ToString
-@Builder
+@AllArgsConstructor
 public class ProdutoEntity {
 
-    private Integer id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false)
     private String nome;
-    private Double preco;
-    private Integer quantidade;
+
+    @Column(nullable = false)
+    private BigDecimal preco;
+
+    @Column(nullable = false)
+    private String estoque;
+
+    private String sku;
 }
