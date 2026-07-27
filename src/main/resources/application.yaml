@@ -6,7 +6,7 @@ spring:
     name: powerpixel
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/powerpixel?createDatabaseIfNotExist=true
+    url: jdbc:postgresql://localhost:5432/powerpixel
     username: ${DATABASE_USERNAME}
     password: ${DATABASE_PASSWORD}
 

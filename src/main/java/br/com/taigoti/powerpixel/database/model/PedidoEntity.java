@@ -7,7 +7,7 @@ import lombok.*;
 @Table(name = "pedidos")
 @Getter
 @Setter
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 public class PedidoEntity {
 
