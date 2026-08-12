@@ -17,14 +17,15 @@ public class ProdutoEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 80)
     private String nome;
 
     @Column(nullable = false)
     private BigDecimal preco;
 
     @Column(nullable = false)
-    private String estoque;
+    private Integer estoque;
 
+    @Column(length = 5)
     private String sku;
 }
