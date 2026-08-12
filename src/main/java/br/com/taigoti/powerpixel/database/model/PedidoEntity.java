@@ -6,6 +6,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -21,13 +22,12 @@ public class PedidoEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany
-    @JoinColumn(name = "produtos")
-    private List<ProdutoEntity> produtos;
-
     @OneToOne
-    @JoinColumn(name = "usuarios")
+    @JoinColumn(name = "usuario_id")
     private UsuarioEntity usuario;
+
+    @OneToMany(mappedBy = "pedido")
+    private List<ItensPedidoEntity> produtos = new ArrayList<>();
 
     @CreatedDate
     @Column(name = "data_criacao",  nullable = false, updatable = false)
