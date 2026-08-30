@@ -6,27 +6,23 @@ import lombok.*;
 import java.math.BigDecimal;
 
 @Entity
-@Table (name = "produtos")
+@Table (name = "itens_pedido")
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class ProdutoEntity {
+public class ItensPedidoEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 80)
-    private String nome;
+    @OneToOne
+    @JoinColumn(name = "produto_id")
+    private ProdutoEntity produto;
 
-    @Column(nullable = false)
-    private BigDecimal preco;
-
-    @Column(nullable = false)
-    private Integer estoque;
-
-    @Column(length = 5)
-    private String sku;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "pedido_id", nullable = false)
+    private PedidoEntity pedido;
 
 }
