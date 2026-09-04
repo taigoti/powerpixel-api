@@ -22,7 +22,7 @@ public class ItensPedidoEntity {
     private ProdutoEntity produto;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "pedido_id", nullable = false)
+//    @JoinColumn(name = "pedido_id", nullable = false)
     private PedidoEntity pedido;
 
 }
