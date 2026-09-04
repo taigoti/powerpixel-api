@@ -15,4 +15,5 @@ public class ProdutoDto {
     public String nome;
     public BigDecimal preco;
     public Integer estoque;
+    public String sku;
 }

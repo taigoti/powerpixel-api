@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 @Table (name = "produtos")
 @Getter
 @Setter
+@Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 public class ProdutoEntity {
